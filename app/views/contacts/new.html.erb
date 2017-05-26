@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<!--<h2>問い合わせ</h2>-->
+
+
+<%= form_for(@contact, url: confirm_contacts_path) do |f| %>
+<% if @contact.errors.any? %>
+  <div id="error_explanation">
+   <h2><%= @contact.errors.count %>件のエラーがあります。</h2>
+   
+   <ul>
+    <% @contact.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+   </ul>
+  </div>
+<% end %>
+
+<div class="container">
+ <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+  <p><%= notice %></p>
+  <h1>問い合わせ</h1>
+   <!--link_to "問い合わせを投稿する", new_contact_path, class: 'btn btn-default' %>
+ <!--@contacts.each do |contact| %>-->
+  <div classs="row">
+   <!--link_to "作成" ,edit_contact_path(contact.id), class:'btn btn-default btn-sm btn-success' %>-->
+   <%=f.label :'名前' %>
+   <%=f.text_field :name, class:'form-control' %>
+   <br>
+   <%= f.label :email %>
+   <%= f.text_field :email, class: 'form-control' %> 
+   <br>
+   <%= f.label :content %>
+   <%= f.text_field :content, class: 'form-control' %>
+   <br>
+   <%= f.submit "問い合わせを投稿する" , class: 'btn btn-primary btn-block' %>
+  
+  </div>
+  <% end %>
+ </div>
+</div>
