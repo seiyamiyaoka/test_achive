@@ -37,6 +37,8 @@ gem 'devise'
 
 gem 'faker'
 
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -48,6 +50,9 @@ group :development, :test do
   gem 'spring'
 end
 
+group :development do
+  gem 'letter_opener_web'
+end
 # gem 'rails_12factor', group: :production
 
 gem 'twitter-bootstrap-rails'
