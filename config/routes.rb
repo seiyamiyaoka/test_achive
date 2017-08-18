@@ -6,12 +6,16 @@ Rails.application.routes.draw do
   devise_for :users
   get 'blogs' => 'blogs#index'
   resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy] do
+
    collection do
  #     member do
      post :confirm
     end
   end
   
+#  get 'poems' => 'poems#index'
+  resources :poems, only: [:index, :show]
+ 
  # get 'contacts' => 'contacts#new'
   
   get 'contacts' => 'contacts#new'
