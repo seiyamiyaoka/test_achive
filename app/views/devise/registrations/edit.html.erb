@@ -61,7 +61,7 @@
   </div>
 
  <% if @user.provider.blank? %>
-  <% if devise_mapping.confirmable? && resource.pending_reconfimation? %>
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
    <div>Currently wating confirmation for: <%= resource.unconfirmed_email %></dev>
  <% end %>
  
