@@ -56,7 +56,8 @@ group :development do
   gem 'better_errors'
   gem 'dotenv-rails'
 end
-# gem 'rails_12factor', group: :production
+
+gem 'rails_12factor', group: :production
 
 gem 'twitter-bootstrap-rails'
 
