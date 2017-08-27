@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
     SecureRandom.uuid
   end
   
-  def update_with_password(params, *oprtions)
+  def update_with_password(params, *options)
     if provider.blank?
        super
     else
