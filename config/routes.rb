@@ -29,6 +29,11 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :blogs do
+    resources :comments
+    post :confirm, on: :collection
+  end
+  
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
