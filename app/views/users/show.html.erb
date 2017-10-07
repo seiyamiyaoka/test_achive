@@ -1,0 +1,40 @@
+<div class="container">
+  <h2>■■ユーザー詳細■■</h2>
+      <div class="container-child col-md-2 col-sm-4 col-xs-6 ">
+        <%= profile_img(@user) %>
+        <%= @user.name %>
+        <%= @user.email %>
+      </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <h3>★フォロー一覧★</h3>
+  <% @followed_users.each do |followed_users| %>
+      <div class="container-child col-md-2 col-sm-4 col-xs-6 ">
+        <%= profile_img(followed_users) %>
+        <%= followed_users.name %>
+        <%= followed_users.email %>
+      </div>
+  <% end %>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+  <h3>★フォロワー一覧★</h3>
+  <% @followers_users.each do |followers_users| %>
+      <div class="container-child col-md-2 col-sm-4 col-xs-6 ">
+        <br>
+        <%= profile_img(followers_users) %>
+        <%= followers_users.name %>
+        <%= followers_users.email %>
+      </div>
+  <% end %>
+</div>
