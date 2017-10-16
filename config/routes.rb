@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'notifications/index'
+
   get 'relationships/create'
 
   get 'relationships/destroy'
@@ -43,6 +45,10 @@ Rails.application.routes.draw do
   
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
+  resources :conversations do
+   resources :messages
   end
 
   # Example resource route with more complex sub-resources:
