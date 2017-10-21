@@ -26,12 +26,12 @@ class CommentsController < ApplicationController
         format.js { render :index }
     end
   end
-  
+
   def edit
    @comment = Comment.find(params[:id])
    @blog = @comment.blog
   end
-  
+
   private
     def comment_params
       params.require(:comment).permit(:blog_id, :content)
