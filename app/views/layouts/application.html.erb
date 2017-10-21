@@ -1,23 +1,7 @@
-
-<p id="notice"><%= notice %></p>
 <!DOCTYPE html>
 <html>
 <head>
   <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
-  <% if user_signed_in? %>
- 　 <script>
-   　 var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>',{
-     　 encrypted: true,
-       cluster: 'ap1'      
-     });
-    var channel = pusher.subscribe("user_<%= current_user.id %>_channel");
-    channel.bind('comment_created', function(data) {
-      $('#unread_count').html(data.unread_counts);
-    });
-   </script>
-  <% end %>
-</head>
-
   <meta name="viewport" content="width=device-width=device-width,initial-scale=1">
   <title>Achieve</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -25,6 +9,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <script>
+     　 var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>',{
+       　 encrypted: true,
+         cluster: 'ap1'
+       });
+       var channel = pusher.subscribe("user_<%= current_user.id %>_channel");
+        channel.bind('comment_created', function(data) {
+          alert(data.message);
+        });
+        channel.bind('notification_created', function(data) {
+          $('#unread_count').html(data.unread_counts);
+        });
+     </script>
    <header>
     <ul>
      　 <li><%= link_to "Achieve", root_path %></li>
@@ -49,10 +46,11 @@
       <li><%= link_to 'ログイン', new_user_session_path %></li>
       <li><%= link_to 'サインアップ', new_user_registration_path %></li>
      <% end %>
-　  </ul>   
+　  </ul>
    </div><!--/.navbar-collapse-->
   </div><!--/.container-fluid-->
 </header>
+<p id="notice"><%= notice %></p>
 
 <%= yield %>
 
